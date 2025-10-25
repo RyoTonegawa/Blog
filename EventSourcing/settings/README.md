@@ -82,6 +82,10 @@ psql postgres://postgres:postgres@localhost:5432/event_sourcing \
 
 `aggregates`, `events`, `outbox_messages` の 3 テーブルが表示されれば OK。
 
+## 4. Zookeeper とは？
+
+Zookeeper は Kafka クラスターのメタデータ（ブローカーの一覧、トピック設定、リーダー選出など）を管理する協調サービス。Kafka 3.x 以降は KRaft モードで Zookeeper なしでも動くが、依然として多くのディストリビューションが Zookeeper 連携を前提にしている。今回の Compose では Bitnami イメージが Zookeeper を要求するため、最小構成として `zookeeper` サービスを立ち上げている。
+
 ## 4. Kafka の動作確認
 
 Bitnami イメージには `kafka-topics.sh` や `kafka-console-producer.sh` が同梱されている。以下はトピック確認の例。
